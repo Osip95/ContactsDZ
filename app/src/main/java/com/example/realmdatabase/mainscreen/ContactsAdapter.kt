@@ -47,11 +47,11 @@ class ContactsAdapter(val onEditButtonClicked: (ContactModel) -> Unit) :
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val note = getItem(position)
-        holder.bind(note)
+        val contact = getItem(position)
+        holder.bind(contact)
 
         holder.imageViewEdit.setOnClickListener {
-            onEditButtonClicked(note)
+            onEditButtonClicked(contact)
         }
 
     }

@@ -19,8 +19,7 @@ import org.koin.core.parameter.parametersOf
 class ChangeContactActivity : AppCompatActivity(), ChangeContactView {
 
 
-    private val presenter: ChangeContactPresenter by inject { parametersOf(changeableContact) }
-    private val changeableContact: ContactModel by lazy { intent.getSerializableExtra(ID_CONTACT) as ContactModel }
+    private val presenter: ChangeContactPresenter by inject { parametersOf(intent.getSerializableExtra(ID_CONTACT) as ContactModel) }
     private val binding by lazy { ActivityChangeContactBinding.inflate(layoutInflater) }
 
     private val etName: EditText by lazy { binding.changeEtName }
