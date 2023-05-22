@@ -5,6 +5,7 @@ import com.example.realmdatabase.data.ContactRepository
 import com.example.realmdatabase.data.ContactRepositoryImpl
 import com.example.realmdatabase.mainscreen.MainViewModel
 import com.example.realmdatabase.addscreen.AddContactPresenter
+import com.example.realmdatabase.data.ContactConverter
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import org.koin.android.ext.koin.androidApplication
@@ -29,8 +30,10 @@ val appModule = module {
         Realm.getDefaultInstance()
     }
 
+    single { ContactConverter() }
+
     single<ContactRepository> {
-        ContactRepositoryImpl(realm = get())
+        ContactRepositoryImpl(realm = get(), contactConverter = get())
     }
 
 
@@ -39,11 +42,11 @@ val appModule = module {
         MainViewModel(contactRepository = get())
     }
 
-    single<AddContactPresenter> {
+    factory {
         AddContactPresenter(contactRepository = get())
     }
 
-    single<ChangeContactPresenter> { params ->
+    factory { params ->
         ChangeContactPresenter(contactRepository = get(), contact = params[0])
     }
 

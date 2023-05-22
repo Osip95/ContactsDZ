@@ -9,6 +9,7 @@ import com.example.realmdatabase.addscreen.AddContactActivity
 import com.example.realmdatabase.changescren.ChangeContactActivity
 import com.example.realmdatabase.data.model.Contact
 import com.example.realmdatabase.databinding.ActivityMainBinding
+import com.example.realmdatabase.domain.entity.ContactModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity(), LifecycleObserver {
@@ -57,7 +58,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
         }
     }
 
-    private fun startChangeContactActivity(contact: Contact) {
+    private fun startChangeContactActivity(contact: ContactModel) {
         startActivity(
             ChangeContactActivity.createIntent(
                 this,

@@ -12,6 +12,7 @@ import android.widget.Toast
 import com.example.realmdatabase.R
 import com.example.realmdatabase.data.model.Contact
 import com.example.realmdatabase.databinding.ActivityChangeContactBinding
+import com.example.realmdatabase.domain.entity.ContactModel
 import com.example.realmdatabase.mainscreen.MainActivity
 import org.koin.core.parameter.parametersOf
 
@@ -19,7 +20,7 @@ class ChangeContactActivity : AppCompatActivity(), ChangeContactView {
 
 
     private val presenter: ChangeContactPresenter by inject { parametersOf(changeableContact) }
-    private val changeableContact: Contact by lazy { intent.getParcelableExtra<Contact>(ID_CONTACT) as Contact }
+    private val changeableContact: ContactModel by lazy { intent.getSerializableExtra(ID_CONTACT) as ContactModel }
     private val binding by lazy { ActivityChangeContactBinding.inflate(layoutInflater) }
 
     private val etName: EditText by lazy { binding.changeEtName }
@@ -30,7 +31,7 @@ class ChangeContactActivity : AppCompatActivity(), ChangeContactView {
         private const val ID_CONTACT = "ID_CONTACT"
         fun createIntent(
             context: Context,
-            contact: Contact
+            contact: ContactModel
         ):
                 Intent =
             Intent(context, ChangeContactActivity::class.java).putExtra(ID_CONTACT, contact)
@@ -54,7 +55,7 @@ class ChangeContactActivity : AppCompatActivity(), ChangeContactView {
         }
     }
 
-    override fun prefillContact(contact: Contact) {
+    override fun prefillContact(contact: ContactModel) {
         etName.setText(contact.name)
         etSurname.setText(contact.surname)
         etNumber.setText(contact.number)
@@ -63,6 +64,4 @@ class ChangeContactActivity : AppCompatActivity(), ChangeContactView {
     override fun showChangeContactSuccessInfo() {
         Toast.makeText(this, getString(R.string.change_contact_message), Toast.LENGTH_SHORT).show()
     }
-
-
 }
