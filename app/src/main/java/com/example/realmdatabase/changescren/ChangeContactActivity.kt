@@ -64,13 +64,5 @@ class ChangeContactActivity : AppCompatActivity(), ChangeContactView {
         Toast.makeText(this, getString(R.string.change_contact_message), Toast.LENGTH_SHORT).show()
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        startActivity(
-            Intent(
-                this,
-                MainActivity::class.java
-            ).setFlags(FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TOP)
-        )
-    }
+
 }
