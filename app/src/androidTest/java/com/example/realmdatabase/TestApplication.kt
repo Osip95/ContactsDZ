@@ -2,17 +2,17 @@ package com.example.realmdatabase
 
 import android.app.Application
 import com.example.realmdatabase.di.appModule
-import com.example.realmdatabase.di.productionRealmConfigModule
+import com.example.realmdatabase.di.instrumentedTestRealmConfigModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
-class App : Application() {
+class TestApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
         startKoin {
-            androidContext(this@App)
-            modules(appModule, productionRealmConfigModule)
+            androidContext(this@TestApplication)
+            modules(appModule, instrumentedTestRealmConfigModule)
         }
     }
 }

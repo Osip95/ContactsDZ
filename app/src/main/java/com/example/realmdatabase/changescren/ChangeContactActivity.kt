@@ -5,15 +5,11 @@ import android.os.Bundle
 import org.koin.android.ext.android.inject
 import android.content.Context
 import android.content.Intent
-import android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP
-import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.widget.EditText
 import android.widget.Toast
 import com.example.realmdatabase.R
-import com.example.realmdatabase.data.model.Contact
 import com.example.realmdatabase.databinding.ActivityChangeContactBinding
 import com.example.realmdatabase.domain.entity.ContactModel
-import com.example.realmdatabase.mainscreen.MainActivity
 import org.koin.core.parameter.parametersOf
 
 class ChangeContactActivity : AppCompatActivity(), ChangeContactView {

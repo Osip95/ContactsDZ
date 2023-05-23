@@ -16,17 +16,7 @@ val appModule = module {
 
     single<Realm> {
         Realm.init(androidApplication())
-
-        val configuration = RealmConfiguration.Builder()
-            .name("todo.db")
-            .deleteRealmIfMigrationNeeded()
-            .schemaVersion(0)
-            .allowWritesOnUiThread(true)
-            .allowQueriesOnUiThread(true)
-            .build()
-
-        Realm.setDefaultConfiguration(configuration)
-
+        Realm.setDefaultConfiguration(get())
         Realm.getDefaultInstance()
     }
 

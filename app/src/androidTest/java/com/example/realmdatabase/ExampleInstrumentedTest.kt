@@ -72,6 +72,45 @@ class ExampleInstrumentedTest {
         pressBack()
         pressBack()
 
+        fun clickItemWithId(id: Int): ViewAction {
+            return object : ViewAction {
+                override fun getConstraints(): Matcher<View>? {
+                    return null
+                }
+
+                override fun getDescription(): String {
+                    return "Click on a child view with specified id."
+                }
+
+                override fun perform(uiController: UiController, view: View) {
+                    val v = view.findViewById<View>(id) as View
+                    v.performClick()
+                }
+            }
+        }
+
+        var lastItemPositionRv = 0
+        activityScenarioRule.scenario.onActivity { activity ->
+            lastItemPositionRv =
+                activity.findViewById<RecyclerView>(R.id.rvContacts).adapter!!.itemCount - 1
+        }
+
+        onView(withId(R.id.rvContacts))
+            .perform(
+                actionOnItemAtPosition<ContactsAdapter.MyViewHolder>(
+                    lastItemPositionRv,
+                    clickItemWithId(R.id.imageView)
+                )
+            )
+
+        val newName = "Alex"
+
+        onView(withId(R.id.changeEtName))
+            .check(matches(isDisplayed()))
+            .perform(click())
+            .perform(clearText())
+            .perform(typeText(newName))
+
     }
 
     @Test
@@ -144,6 +183,8 @@ class ExampleInstrumentedTest {
             .perform(
                 scrollToLastPosition<ContactsAdapter.MyViewHolder>()
             )
+
+
 
     }
 }
