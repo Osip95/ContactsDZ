@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">RealmDatabase</string>
+    <string name="first_name">Имя</string>
+    <string name="surname">Фамилия</string>
+    <string name="number">Номер телефона</string>
+    <string name="save_contact">Сохранить контакт</string>
+    <string name="save_change">Сохранить изменения</string>
+    <string name="add_contact_message">контакт добавлен</string>
+    <string name="change_contact_message">контакт изменён</string>
+</resources>
