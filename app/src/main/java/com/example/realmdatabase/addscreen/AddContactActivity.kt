@@ -22,6 +22,8 @@ class AddContactActivity : AppCompatActivity(), AddContactView {
         binding = ActivityAddContactBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.etName.requestFocus()
+
         binding.btnSave.setOnClickListener {
             with(binding) {
                 addContactPresenter.addContact(

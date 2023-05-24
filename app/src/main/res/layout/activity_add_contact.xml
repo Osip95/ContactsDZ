@@ -10,19 +10,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:hint="@string/first_name" />
+        android:hint="@string/first_name"
+        android:inputType="text"
+        android:nextFocusDown="@id/etSurname"
+        />
 
     <EditText
         android:id="@+id/etSurname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:hint="@string/surname" />
+        android:hint="@string/surname"
+        android:inputType="text"
+        android:nextFocusDown="@id/etNumber"
+        />
 
     <EditText
         android:id="@+id/etNumber"
         android:layout_width="match_parent"
-
+        android:inputType="phone"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:hint="@string/number" />
