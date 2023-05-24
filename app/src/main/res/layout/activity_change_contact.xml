@@ -11,20 +11,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:hint="@string/first_name" />
+        android:hint="@string/first_name"
+        android:inputType="text"
+        android:nextFocusDown="@id/changeEtSurname"
+        />
 
     <EditText
         android:id="@+id/changeEtSurname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:hint="@string/surname" />
+        android:hint="@string/surname"
+        android:inputType="text"
+        android:nextFocusDown="@id/changeEtNumber"
+        />
 
     <EditText
         android:id="@+id/changeEtNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:inputType="phone"
         android:hint="@string/number" />
 
     <Button

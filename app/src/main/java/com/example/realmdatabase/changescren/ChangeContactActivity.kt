@@ -39,6 +39,7 @@ class ChangeContactActivity : AppCompatActivity(), ChangeContactView {
         presenter.initAction(this)
         setContentView(binding.root)
 
+        binding.changeEtName.requestFocus()
         with(binding) {
             btnSaveChange.setOnClickListener {
                 presenter.onChangeContactClicked(
